@@ -18,7 +18,7 @@ class DogAPI {
     }
     
     //class functions are same as static functions except that sublcasses can override them
-    class func fetchImage(completionHandler: @escaping (DogImage?, Error?) -> Void) {
+    class func fetchImageData(completionHandler: @escaping (DogImage?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: EndPoint.randomImageFromAllDogs.url) { (data, response, error) in
             guard let data = data else {
                 completionHandler(nil, error)
@@ -43,6 +43,4 @@ class DogAPI {
         let status = imageData["status"] as! String
         return DogImage(message: message, status: status)
     }
-    
-    
 }

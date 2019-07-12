@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 
     private func loadRandomImage() {
-        DogAPI.fetchImage(completionHandler: handleRandomImageResponse(dogImage:error:))
+        DogAPI.fetchImageData(completionHandler: handleRandomImageResponse(dogImage:error:))
     }
     
     private func handleRandomImageResponse(dogImage: DogImage?, error: Error?) {
