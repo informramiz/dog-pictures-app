@@ -12,6 +12,8 @@ import Foundation
 class DogAPI {
     enum EndPoint {
         case randomImageFromAllDogs
+        case randomImageForBreed(String)
+        
         
         var url: URL {
             return URL(string: self.stringValue)!
@@ -21,6 +23,9 @@ class DogAPI {
             switch self {
             case .randomImageFromAllDogs:
                 return "https://dog.ceo/api/breeds/image/random"
+            case .randomImageForBreed(let breed):
+                return "https://dog.ceo/api/breed/\(breed)/images"
+            }
         }
     }
     
