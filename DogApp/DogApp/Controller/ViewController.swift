@@ -21,7 +21,24 @@ class ViewController: UIViewController {
     }
     
     private func handleRandomImageResponse(dogImage: DogImage?, error: Error?) {
-        print(dogImage)
+        let imageUrlStr = dogImage?.message ?? ""
+        guard let imageUrl = URL(string: imageUrlStr) else {
+            print("Invalid image url: \(imageUrlStr)")
+            return
+        }
+        
+        DogAPI.fetchImage(imageUrl: imageUrl, completionHandler: handleImageFetch(data:error:))
+    }
+    
+    private func handleImageFetch(data: Data?, error: Error?) {
+        guard let data = data else {
+            print("Image data is nil")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.imageView.image = UIImage(data: data)
+        }
     }
 }
 

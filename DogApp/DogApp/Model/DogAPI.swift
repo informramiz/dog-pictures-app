@@ -43,4 +43,12 @@ class DogAPI {
         let status = imageData["status"] as! String
         return DogImage(message: message, status: status)
     }
+    
+    class func fetchImage(imageUrl: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+            completionHandler(data, error)
+        }
+        
+        task.resume()
+    }
 }
