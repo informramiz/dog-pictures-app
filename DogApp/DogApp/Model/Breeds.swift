@@ -12,7 +12,7 @@ struct Breeds: Codable {
     let message: [String: [String]]
     let status: String
     
-    var breeds: [String] {
+    var breedNamesList: [String] {
         return message.keys.map({$0})
     }
 }

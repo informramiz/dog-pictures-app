@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            self.breeds += breeds.breeds
+            self.breeds += breeds.breedNamesList
             DispatchQueue.main.async {
                 self.pickerView.reloadAllComponents()
             }
