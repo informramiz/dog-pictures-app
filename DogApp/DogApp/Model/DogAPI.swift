@@ -6,14 +6,21 @@
 //  Copyright © 2019 Ramiz Raja. All rights reserved.
 //
 
+
 import Foundation
 
 class DogAPI {
-    enum EndPoint: String {
-        case randomImageFromAllDogs = "https://dog.ceo/api/breeds/image/random"
+    enum EndPoint {
+        case randomImageFromAllDogs
         
         var url: URL {
-            return URL(string: self.rawValue)!
+            return URL(string: self.stringValue)!
+        }
+        
+        var stringValue: String {
+            switch self {
+            case .randomImageFromAllDogs:
+                return "https://dog.ceo/api/breeds/image/random"
         }
     }
     
