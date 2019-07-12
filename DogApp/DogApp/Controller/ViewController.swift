@@ -13,8 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadRandomImage()
     }
 
+    private func loadRandomImage() {
+        DogAPI.fetchImage(completionHandler: handleRandomImageResponse(dogImage:error:))
+    }
     
+    private func handleRandomImageResponse(dogImage: DogImage?, error: Error?) {
+        print(dogImage)
+    }
 }
 
