@@ -44,6 +44,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Cqi-Ko-3e7" id="zqC-2E-z28"/>
+                        <outlet property="pickerView" destination="hFy-dM-PCh" id="9OI-Zu-9YZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
