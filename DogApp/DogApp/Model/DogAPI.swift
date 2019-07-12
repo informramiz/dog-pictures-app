@@ -26,7 +26,7 @@ class DogAPI {
             }
             
             do {
-                let dogImage = try parseImageData(data: data)
+                let dogImage = try parseImageDataUsingJsonSerialization(data: data)
                 completionHandler(dogImage, nil)
             } catch {
                 print(error)
@@ -37,10 +37,12 @@ class DogAPI {
         task.resume()
     }
     
-    private class func parseImageData(data: Data) throws -> DogImage {
+    private class func parseImageDataUsingJsonSerialization(data: Data) throws -> DogImage {
         let imageData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
         let message = imageData["message"] as! String
         let status = imageData["status"] as! String
         return DogImage(message: message, status: status)
     }
+    
+    
 }
