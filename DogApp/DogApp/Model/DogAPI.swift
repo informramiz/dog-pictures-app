@@ -26,7 +26,7 @@ class DogAPI {
             }
             
             do {
-                let dogImage = try parseImageDataUsingJsonSerialization(data: data)
+                let dogImage = try parseImageDataUsingJsonDecoder(data: data)
                 completionHandler(dogImage, nil)
             } catch {
                 print(error)
@@ -42,6 +42,11 @@ class DogAPI {
         let message = imageData["message"] as! String
         let status = imageData["status"] as! String
         return DogImage(message: message, status: status)
+    }
+    
+    private class func parseImageDataUsingJsonDecoder(data: Data) throws -> DogImage {
+        let decoder = JSONDecoder()
+        return try decoder.decode(DogImage.self, from: data)
     }
     
     class func fetchImage(imageUrl: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
