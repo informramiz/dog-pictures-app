@@ -18,6 +18,7 @@
 		B4788E9A22D8DA1500B80F5E /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4788E9922D8DA1500B80F5E /* DogImage.swift */; };
 		B4A2BF6C22D9179B0042E36F /* PickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A2BF6B22D9179B0042E36F /* PickerViewDataSource.swift */; };
 		B4A2BF6E22D918C90042E36F /* PickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A2BF6D22D918C90042E36F /* PickerViewDelegate.swift */; };
+		B4A2BF7222D922D80042E36F /* Breeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A2BF7122D922D80042E36F /* Breeds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B4788E9922D8DA1500B80F5E /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 		B4A2BF6B22D9179B0042E36F /* PickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDataSource.swift; sourceTree = "<group>"; };
 		B4A2BF6D22D918C90042E36F /* PickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDelegate.swift; sourceTree = "<group>"; };
+		B4A2BF7122D922D80042E36F /* Breeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breeds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				B4788E9722D8D90900B80F5E /* DogAPI.swift */,
 				B4788E9922D8DA1500B80F5E /* DogImage.swift */,
+				B4A2BF7122D922D80042E36F /* Breeds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A2BF7222D922D80042E36F /* Breeds.swift in Sources */,
 				B4788E6922D8D6C300B80F5E /* ViewController.swift in Sources */,
 				B4A2BF6C22D9179B0042E36F /* PickerViewDataSource.swift in Sources */,
 				B4788E6722D8D6C300B80F5E /* AppDelegate.swift in Sources */,

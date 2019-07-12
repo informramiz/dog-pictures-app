@@ -13,6 +13,7 @@ class DogAPI {
     enum EndPoint {
         case randomImageFromAllDogs
         case randomImageForBreed(String)
+        case listAllBreeds
         
         
         var url: URL {
@@ -25,8 +26,29 @@ class DogAPI {
                 return "https://dog.ceo/api/breeds/image/random"
             case .randomImageForBreed(let breed):
                 return "https://dog.ceo/api/breed/\(breed)/images/random"
+            case .listAllBreeds:
+                return "https://dog.ceo/api/breeds/list/all"
             }
         }
+    }
+    
+    class func listBreeds(completionHandler: @escaping (Breeds?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: EndPoint.listAllBreeds.url) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let breeds = try jsonDecoder.decode(Breeds.self, from: data)
+                completionHandler(breeds, nil)
+            } catch {
+                print(error)
+                completionHandler(nil, error)
+            }
+        }
+        task.resume()
     }
     
     //class functions are same as static functions except that sublcasses can override them

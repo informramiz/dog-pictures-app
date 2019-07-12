@@ -12,13 +12,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var breeds: [String] = ["hound", "poodle"]
+    var breeds: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        loadBreeds()
+    }
+    
+    private func loadBreeds() {
+        DogAPI.listBreeds { (breeds, error) in
+            guard let breeds = breeds else {
+                print(error ?? "Error occurred when loading breeds list")
+                return
+            }
+            
+            self.breeds += breeds.breeds
+            DispatchQueue.main.async {
+                self.pickerView.reloadAllComponents()
+            }
+        }
     }
 
     func loadRandomImage(_ breed: String) {
